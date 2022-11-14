@@ -12,7 +12,6 @@ function App() {
     <>
       <Navbar />
       <div className="wrapper">
-        {/* <h1>Our Gorgeous Application will be placed here!</h1> */}
         <Routes>
           <Route path="/locomotives-list" element={<LocomotivesList />} />
           <Route path="/map" element={<Map />} />
