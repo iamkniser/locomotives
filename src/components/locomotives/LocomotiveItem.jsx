@@ -6,10 +6,12 @@ import React from 'react';
 import ClearIcon from '@mui/icons-material/Clear';
 import EditIcon from '@mui/icons-material/Edit';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { removeLocomotive } from '../../store/locomotiveSlice';
 
 function LocomotiveItem({ locomotive }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     id, title, series, sections, coordinates,
@@ -27,7 +29,7 @@ function LocomotiveItem({ locomotive }) {
       <TableCell align="right">{`${coordinates[0]} ${coordinates[1]}`}</TableCell>
       <TableCell align="right">
         <Stack direction="row" spacing={2} justifyContent="flex-end">
-          <Button variant="contained" color="primary"><EditIcon /></Button>
+          <Button variant="contained" color="primary" onClick={() => navigate(`/locomotive/${locomotive.id}`)}><EditIcon /></Button>
           <Button variant="contained" color="error" onClick={() => dispatch(removeLocomotive(id))}><ClearIcon /></Button>
         </Stack>
       </TableCell>
