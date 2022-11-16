@@ -19,10 +19,9 @@ const locomotiveSlice = createSlice({
   reducers: {
     addLocomotive(state, action) {
       console.log(state);
-      console.log(action.payload.coordinates);
 
       state.locomotives.push({
-        id: new Date().toISOString(),
+        id: state.locomotives.at(-1).id + 1,
         title: action.payload.title,
         series: action.payload.series,
         sections: action.payload.sections,
@@ -32,7 +31,13 @@ const locomotiveSlice = createSlice({
     removeLocomotive(state, action) {
       state.locomotives = state.locomotives.filter((locomotive) => locomotive.id !== action.payload);
     },
-    // editLocomotive(state, action) {},
+    editLocomotive(state, action) {
+      state.locomotives.map((locomotive) => {
+        if (locomotive.id === action.payload.id) {
+          locomotive.title = action.payload.title;
+        }
+      });
+    },
   },
 });
 
