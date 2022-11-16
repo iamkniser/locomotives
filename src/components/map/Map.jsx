@@ -7,6 +7,7 @@ import './Map.css';
 
 function Map() {
   const locomotives = useSelector((state) => state.locomotives.locomotives);
+  console.log('locomotives', locomotives);
   const [selectedLocomotive, setSelectedLocomotive] = useState(null);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_API_KEY,

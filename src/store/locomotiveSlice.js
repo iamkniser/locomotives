@@ -19,7 +19,7 @@ const locomotiveSlice = createSlice({
   reducers: {
     addLocomotive(state, action) {
       console.log(state);
-      console.log(action);
+      console.log(action.payload.coordinates);
 
       state.locomotives.push({
         id: new Date().toISOString(),

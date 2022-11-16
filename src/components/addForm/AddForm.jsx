@@ -12,7 +12,7 @@ function AddForm() {
   const [title, setTitle] = useState('');
   const [series, setSeries] = useState('');
   const [sections, setSections] = useState('');
-  const [coordinates, setCoordinates] = useState('');
+  const [coordinates, setCoordinates] = useState();
 
   return (
     <Container sx={{ width: 400, paddingTop: 4 }}>
@@ -21,7 +21,12 @@ function AddForm() {
         <TextField id="outlined-basic" label="Наименование" variant="outlined" onChange={(e) => setTitle(e.target.value)} />
         <TextField id="outlined-basic" label="Серия" variant="outlined" onChange={(e) => setSeries(e.target.value)} />
         <TextField id="outlined-basic" label="Кол-во секций" variant="outlined" onChange={(e) => setSections(e.target.value)} />
-        <TextField id="outlined-basic" label="Координаты" variant="outlined" onChange={(e) => setCoordinates(e.target.value)} />
+        <TextField
+          id="outlined-basic"
+          label="Координаты"
+          variant="outlined"
+          onChange={(e) => setCoordinates(((e.target.value).split(', ')).map((el) => +el))}
+        />
 
       </Stack>
       <Button
