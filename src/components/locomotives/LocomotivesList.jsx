@@ -11,16 +11,15 @@ import {
   Box, Button, Container, Stack,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import LocomotiveItem from './LocomotiveItem';
 
 export default function LocomotivesList() {
   const locomotives = useSelector((state) => state.locomotives.locomotives);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   return (
-    <Container>
+    <Container sx={{ paddingTop: 4 }}>
       <Stack direction="row" spacing={2} alignItems="center" justifyContent="space-between">
         <h2>Список локомотивов:</h2>
         <Button variant="contained" color="secondary" startIcon={<AddIcon />} onClick={() => navigate('/locomotive')}>Добавить локомотив</Button>

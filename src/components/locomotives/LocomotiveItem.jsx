@@ -24,7 +24,7 @@ function LocomotiveItem({ locomotive }) {
       </TableCell>
       <TableCell align="center">{series}</TableCell>
       <TableCell align="right">{sections}</TableCell>
-      <TableCell align="right">{coordinates}</TableCell>
+      <TableCell align="right">{`${coordinates[0]} ${coordinates[1]}`}</TableCell>
       <TableCell align="right">
         <Stack direction="row" spacing={2} justifyContent="flex-end">
           <Button variant="contained" color="primary"><EditIcon /></Button>
